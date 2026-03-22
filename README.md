@@ -1,22 +1,32 @@
-# Linux Server Lab
+Linux Server Lab
 
-Real-world Linux server configurations and debugging cases.
-Built on a live VPS (Contabo, 8GB RAM, Ubuntu) — not localhost, not tutorials.
+Hands-on Linux server setup and debugging on a live VPS (Ubuntu).
 
-## What This Repo Contains
+What I did
 
-- Nginx production config (SSL, caching, security)
-- WordPress manual deployment (no cPanel)
-- Server hardening (SSH, fail2ban, UFW)
-- Real debugging cases with logs and fixes
+- Set up Nginx with SSL, caching and basic security
+- Deployed WordPress manually (no cPanel)
+- Configured PHP-FPM and MySQL
+- Applied basic server hardening (SSH, UFW, Fail2Ban)
 
-## Server Stack
-- OS: Ubuntu Linux
-- Web Server: Nginx
-- Backend: PHP 8.3 FPM
-- Database: MySQL
-- SSL: Let's Encrypt (Certbot)
-- Location: Europe VPS (Contabo)
+Issues I faced and fixed
 
-## Status
-actively building and documenting real server work.
+- 502 Bad Gateway
+  → PHP-FPM was not running / wrong socket
+  → Fixed by restarting service and correcting config
+
+- 504 Gateway Timeout
+  → PHP response was too slow
+  → Adjusted timeout settings
+
+- 403 Forbidden
+  → Happened due to missing index file and permission issues
+  → Fixed by correcting file and permissions
+
+Stack
+
+Ubuntu, Nginx, PHP 8.3 FPM, MySQL, Let's Encrypt (Certbot)
+
+Notes
+
+This is my practice project where I tested real server issues on a VPS and fixed them.
